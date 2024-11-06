@@ -12,60 +12,56 @@
 
   <!-- Adding the modules, API key, and map constant needed for a full screen map app -->
   <script>
-  
     require([
-     "esri/config",
+      "esri/config",
       "esri/Map",
       "esri/views/MapView",
-
-      //adding in the modules for the graphic and graphic layer
-"esri/Graphic",  
-"esri/layers/GraphicsLayer"   
-
-], function(esriConfig,Map, MapView, Graphic, GraphicsLayer) {
-  
+      "esri/Graphic",
+      "esri/layers/GraphicsLayer"
+    ], function(esriConfig, Map, MapView, Graphic, GraphicsLayer) {
       esriConfig.apiKey = "AAPTxy8BH1VEsoebNVZXo8HurKt7b9h2VPau4lD4HVhmTxTzxShg6ZA8aY-z2orr_G87maTZBMISg9UYY7HbkU0qJtfx6u-Ez5KNa2U_6pxU0QgfGyMy17xlo9pUpI1uNhrV-3-QiN23vsDrFQBsFrW5aTxJzpSezJgWTUojeLeeqTgi_LtgN8gU3y10OhBFwNN19FfTRq3OXDuIvpq85mNKJX0ZZgEQMZu6VOBQGwp7oQc.AT1_rfklCSIP";
-      const map = new MapView({
+      
+      const map = new Map({
         basemap: "arcgis-topographic" // Basemap layer
       });
 
       const view = new MapView({
-          map: map,
-          center: [118.6884, 34.0328], // Longitude, latitude
-          zoom: 13, // Zoom level
-          container: "viewDiv" // Div element 
-        });
+        map: map,
+        center: [-118.6884, 34.0328], // Longitude, latitude
+        zoom: 13, // Zoom level
+        container: "viewDiv" // Div element 
+      });
 
-        //adding the constructor for the graphicslayer
-        const graphicslayer = new GraphicsLayer ();
-        map.add(graphicslayer);
+      // Adding the constructor for the graphicsLayer
+      const graphicsLayer = new GraphicsLayer();
+      map.add(graphicsLayer);
 
-        //defining the geometry of the point
-        const point = { //Create a point
-          type: "point"
-          longitude:118.6884,
-          latitude:34.0328
-    };
+      // Defining the geometry of the point
+      const point = { 
+        type: "point",
+        longitude: -118.6884,
+        latitude: 34.0328
+      };
 
-    //defining the maker style 
-    const simpleMarkerSymbol = {
-      type: "simple-marker",
-      color: [0, 0, 139]
-      outline: {
-        color: [255, 255, 255], // White
-        width: 1
-      }
-    };
+      // Defining the marker style 
+      const simpleMarkerSymbol = {
+        type: "simple-marker",
+        color: [0, 0, 139],
+        outline: {
+          color: [255, 255, 255], // White
+          width: 1
+        }
+      };
 
-    //creating the point
-    const pointGraphic = new Graphic ({
-      geometry: point,
-      symbol: simpleMarkerSymbol
+      // Creating the point
+      const pointGraphic = new Graphic({
+        geometry: point,
+        symbol: simpleMarkerSymbol
+      });
+
+      // Adding the point to the graphicsLayer
+      graphicsLayer.add(pointGraphic);
     });
-
-    //adding the point to the graphicsLayer
-    graphicslayer.add(pointGraphic);
-  });
   </script>
 
   <!-- css to make a full screen map -->
