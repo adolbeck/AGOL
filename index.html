@@ -19,7 +19,7 @@
       "esri/Graphic",
       "esri/layers/GraphicsLayer"
     ], function(esriConfig, Map, MapView, Graphic, GraphicsLayer) {
-      esriConfig.apiKey = "AAPTxy8BH1VEsoebNVZXo8HurKt7b9h2VPau4lD4HVhmTxTzxShg6ZA8aY-z2orr_G87maTZBMISg9UYY7HbkU0qJtfx6u-Ez5KNa2U_6pxU0QgfGyMy17xlo9pUpI1uNhrV-3-QiN23vsDrFQBsFrW5aTxJzpSezJgWTUojeLeeqTgi_LtgN8gU3y10OhBFwNN19FfTRq3OXDuIvpq85mNKJX0ZZgEQMZu6VOBQGwp7oQc.AT1_rfklCSIP";
+      esriConfig.apiKey = "AAPTxy8BH1VEsoebNVZXo8HurKt7b9h2VPau4lD4HVhmTxTzxShg6ZA8aY-z2orr_G87maTZBMISg9UYY7HbkU0qJtfx6u-Ez5KNa2U_6pxU0QgfGyMy17xlo9pUpI1uNhrV-3-QiN23vsDrFQBsFrW5aTxJzpSezJgWTUojeLeeqTgi_LtgN8gU3y10OhBFwNN19FfTRq3OXDuIvpq85mNKJX0ZZgEQMZu6VOBQGwp7oQc";
       
       const map = new Map({
         basemap: "arcgis-topographic" // Basemap layer
@@ -43,9 +43,10 @@
         latitude: 34.0328
       };
 
-      // Defining the marker style 
+      // Defining the marker style with a square
       const simpleMarkerSymbol = {
         type: "simple-marker",
+        style: "square", // Set the shape to square
         color: [0, 0, 139],
         outline: {
           color: [255, 255, 255], // White
