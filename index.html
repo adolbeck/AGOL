@@ -16,19 +16,16 @@
     require([
      "esri/config",
       "esri/Map",
-      "esri/views/MapView"
+      "esri/views/MapView",
 
-      require([  
-"esri/config",  
-"esri/Map",  
-"esri/views/MapView",   
+      //adding in the modules for the graphic and graphic layer
 "esri/Graphic",  
 "esri/layers/GraphicsLayer"   
-], function(esriConfig,Map, MapView, Graphic, GraphicsLayer) {
-    ], function (esriConfig,Map, MapView) {
 
+], function(esriConfig,Map, MapView, Graphic, GraphicsLayer) {
+  
       esriConfig.apiKey = "AAPTxy8BH1VEsoebNVZXo8HurKt7b9h2VPau4lD4HVhmTxTzxShg6ZA8aY-z2orr_G87maTZBMISg9UYY7HbkU0qJtfx6u-Ez5KNa2U_6pxU0QgfGyMy17xlo9pUpI1uNhrV-3-QiN23vsDrFQBsFrW5aTxJzpSezJgWTUojeLeeqTgi_LtgN8gU3y10OhBFwNN19FfTRq3OXDuIvpq85mNKJX0ZZgEQMZu6VOBQGwp7oQc.AT1_rfklCSIP";
-      const map = new Map({
+      const map = new MapView({
         basemap: "arcgis-topographic" // Basemap layer
       });
 
@@ -46,8 +43,8 @@
         //defining the geometry of the point
         const point = { //Create a point
           type: "point"
-          longitude:34.0328,
-          latitude: 118.6884
+          longitude:118.6884,
+          latitude:34.0328
     };
 
     //defining the maker style 
